@@ -49,14 +49,13 @@ const images = [
     }
 ];
 
-console.log(containerSelector);
 
-console.log(images);
+
+
+images.forEach((immagine) => {
 
 // creazione div ed immagini dentro id = container
 
-images.forEach((immagine) => {
-    
     containerSelector = document.getElementById("container");
 
     containerSelector.innerHTML += `<div class="img-container"> 
@@ -73,6 +72,8 @@ images.forEach((immagine) => {
                              
                                     `;
     
+    // creazione div ed immagini dentro id = thumb-nail
+
     containerSelector = document.getElementById("thumb-nail");
 
 
@@ -84,8 +85,6 @@ images.forEach((immagine) => {
 
 
 });
-
-// creazione div ed immagini dentro id = thumb-nail
 
 
 
@@ -154,5 +153,29 @@ buttonInteractionDown.addEventListener('click',
 
     }
 );
+// Aggiungere funzionalità di autoplay: dopo un certo periodo di tempo (3 secondi) l’immagine attiva dovrà cambiare alla successiva.
+
+let clock = setInterval(function(){
+
+    immagini[indexImmagineAttiva].classList.remove("active");
+
+    immaginiThumbNail[indexImmagineAttiva].classList.remove("thumb-nail-selected");
+
+    if(indexImmagineAttiva == 0 ){
+        indexImmagineAttiva = imageList.length;
+
+    }
+
+    indexImmagineAttiva--;
+
+    immagini[indexImmagineAttiva].classList.add("active");
+
+    immaginiThumbNail[indexImmagineAttiva].classList.add("thumb-nail-selected");
+    
+    console.log(indexImmagineAttiva);
+    
 
 
+
+}
+, 3000);
