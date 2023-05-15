@@ -154,10 +154,10 @@ buttonInteractionDown.addEventListener('click',
     }
 );
 // Aggiungere funzionalità di autoplay: dopo un certo periodo di tempo (3 secondi) l’immagine attiva dovrà cambiare alla successiva.
-let clock;
+
 
 function menta(){
-clock = setInterval(function(){
+return setInterval(function(){
 
     immagini[indexImmagineAttiva].classList.remove("active");
 
@@ -177,15 +177,30 @@ clock = setInterval(function(){
     console.log(indexImmagineAttiva);
     
 }
-, 3000);}
+, 3000);
+}
 
-clock = menta();
-
+let clock = menta();
 
 // stop button
 
-let  buttonInteractionStop = document.getElementById("stop-button");
+let buttonInteractionStop = document.getElementById("stop-button");
 
-buttonInteractionStop.addEventListener('click',
-clearInterval(clock)
+buttonInteractionStop.addEventListener('click', () => {
+    clearInterval(clock);
+    buttonInteractionStop.className = "hidden";
+    buttonInteractionStart.className = "active";
+}
+
+
 );
+
+//start button
+
+let buttonInteractionStart = document.getElementById("start-button");
+
+buttonInteractionStart.addEventListener('click', () => {
+    clock = menta();
+    buttonInteractionStop.className = "active";
+    buttonInteractionStart.className = "hidden";
+});

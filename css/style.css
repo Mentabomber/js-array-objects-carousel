@@ -34,7 +34,7 @@
 }
 
 #start-button{
-    display: none;
+    
 }
 #container{
     position: relative;
@@ -91,7 +91,9 @@ button{
 .active{
     display: block;
 }
-
+.hidden{
+    display: none;
+}
 #thumb-nail{
     position: absolute;
     top: 0;
