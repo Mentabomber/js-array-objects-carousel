@@ -56,6 +56,9 @@ console.log(images);
 // creazione div ed immagini dentro id = container
 
 images.forEach((immagine) => {
+    
+    containerSelector = document.getElementById("container");
+
     containerSelector.innerHTML += `<div class="img-container"> 
                                         <img src="${immagine.image}" alt="static-test-img">
                                         <div class="title-text">
@@ -70,23 +73,21 @@ images.forEach((immagine) => {
                              
                                     `;
     
+    containerSelector = document.getElementById("thumb-nail");
+
+
+    containerSelector.innerHTML += `<div class="img-thumb-nail"> 
+                                        <img src=${immagine.image} alt="static-test-img">
+                                    </div>
+                                    ` ;
+                                    
 
 
 });
 
 // creazione div ed immagini dentro id = thumb-nail
 
-containerSelector = document.getElementById("thumb-nail");
 
-for(let i = 0; i <= imageList.length - 1; i++){
-
-    containerSelector.innerHTML += `<div class="img-thumb-nail"> 
-                                        <img src=${imageList[i]} alt="static-test-img">
-                                    </div>
-                                    ` ;
-                                    
-
-}
 
 // seleziono container poi seleziono tutti i div con classe img-container e aggiungo alla prima active per visualizzare il div 
 
