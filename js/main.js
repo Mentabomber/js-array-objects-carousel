@@ -156,9 +156,9 @@ buttonInteractionDown.addEventListener('click',
 // Aggiungere funzionalità di autoplay: dopo un certo periodo di tempo (3 secondi) l’immagine attiva dovrà cambiare alla successiva.
 
 
-function menta(){
+function autoPlay(){
 return setInterval(function(){
-
+    
     immagini[indexImmagineAttiva].classList.remove("active");
 
     immaginiThumbNail[indexImmagineAttiva].classList.remove("thumb-nail-selected");
@@ -179,8 +179,58 @@ return setInterval(function(){
 }
 , 3000);
 }
+let counter = 2;
+function autoPlayReverse(){
+    return setInterval(function(){
+        
+        console.log(counter + "counter");
+        if (counter % 2 == 0){
 
-let clock = menta();
+            immagini[indexImmagineAttiva].classList.remove("active");
+
+            immaginiThumbNail[indexImmagineAttiva].classList.remove("thumb-nail-selected");
+
+            if(indexImmagineAttiva == 0 ){
+                indexImmagineAttiva = imageList.length;
+
+            }
+
+            indexImmagineAttiva--;
+
+            immagini[indexImmagineAttiva].classList.add("active");
+
+            immaginiThumbNail[indexImmagineAttiva].classList.add("thumb-nail-selected");
+            
+            console.log(indexImmagineAttiva);
+            
+        }
+        else if(counter % 2 == 1){
+
+            immagini[indexImmagineAttiva].classList.remove("active");
+
+            immaginiThumbNail[indexImmagineAttiva].classList.remove("thumb-nail-selected");
+            indexImmagineAttiva++;
+
+            if(indexImmagineAttiva == imageList.length ){
+                indexImmagineAttiva = 0;
+
+            }
+            immagini[indexImmagineAttiva].classList.add("active");
+
+            immaginiThumbNail[indexImmagineAttiva].classList.add("thumb-nail-selected");
+
+            console.log(indexImmagineAttiva);
+            
+
+        }
+
+        
+        
+    }
+    , 3000);
+    }
+
+let clock = autoPlay();
 
 // stop button
 
@@ -200,7 +250,21 @@ buttonInteractionStop.addEventListener('click', () => {
 let buttonInteractionStart = document.getElementById("start-button");
 
 buttonInteractionStart.addEventListener('click', () => {
-    clock = menta();
+    clock = autoPlay();
     buttonInteractionStop.className = "active";
     buttonInteractionStart.className = "hidden";
+});
+
+
+//reverse button
+
+let buttonInteractionReverse = document.getElementById("reverse-button");
+
+buttonInteractionReverse.addEventListener('click', () => {
+    counter++;
+    clearInterval(clock);
+    clock = autoPlayReverse();
+    buttonInteractionStop.className = "active";
+    buttonInteractionStart.className = "hidden";
+
 });

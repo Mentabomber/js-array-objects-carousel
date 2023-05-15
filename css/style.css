@@ -18,7 +18,8 @@
     z-index: 999;
 }
 #stop-button,
-#start-button{
+#start-button,
+#reverse-button{
     position: absolute;
     top: 0;
     left: 0;
@@ -35,6 +36,11 @@
 
 #start-button{
     
+}
+
+#reverse-button{
+    left: 55px ;
+    width: 100px;
 }
 #container{
     position: relative;
