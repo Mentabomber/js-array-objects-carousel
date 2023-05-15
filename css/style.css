@@ -17,7 +17,25 @@
     right: 7%;
     z-index: 999;
 }
+#stop-button,
+#start-button{
+    position: absolute;
+    top: 0;
+    left: 0;
+    font-size: 20px;
+    width: 50px;
+    height: 50px;
+    border: 1px black solid;
+    border-radius: 100%;
+}
 
+#stop-button{
+    
+}
+
+#start-button{
+    display: none;
+}
 #container{
     position: relative;
     display: flex;

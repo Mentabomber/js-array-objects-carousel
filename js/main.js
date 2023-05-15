@@ -154,8 +154,10 @@ buttonInteractionDown.addEventListener('click',
     }
 );
 // Aggiungere funzionalità di autoplay: dopo un certo periodo di tempo (3 secondi) l’immagine attiva dovrà cambiare alla successiva.
+let clock;
 
-let clock = setInterval(function(){
+function menta(){
+clock = setInterval(function(){
 
     immagini[indexImmagineAttiva].classList.remove("active");
 
@@ -174,8 +176,16 @@ let clock = setInterval(function(){
     
     console.log(indexImmagineAttiva);
     
-
-
-
 }
-, 3000);
+, 3000);}
+
+clock = menta();
+
+
+// stop button
+
+let  buttonInteractionStop = document.getElementById("stop-button");
+
+buttonInteractionStop.addEventListener('click',
+clearInterval(clock)
+);
