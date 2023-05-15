@@ -28,7 +28,7 @@ let containerSelector = document.getElementById("container");
 const images = [
     {
         image: 'img/01.webp',
-        title: "'Marvel\\'s Spiderman Miles Morale'",
+        title: "Marvel's Spiderman Miles Morale",
         text: 'Experience the rise of Miles Morales as the new hero masters incredible, explosive new powers to become his own Spider-Man.',
     }, {
         image: 'img/02.webp',
@@ -45,26 +45,32 @@ const images = [
     }, {
         image: 'img/05.webp',
         title: "Marvel's Avengers",
-        text: "'Marvel\\'s Avengers is an epic, third-person, action-adventure game that combines an original, cinematic story with single-player and co-operative gameplay.'",
+        text: "Marvel's Avengers is an epic, third-person, action-adventure game that combines an original, cinematic story with single-player and co-operative gameplay.",
     }
 ];
 
 console.log(containerSelector);
 
-
+console.log(images);
 
 // creazione div ed immagini dentro id = container
 
-for(let i = 0; i <= imageList.length - 1; i++){
-
+images.forEach((immagine) => {
     containerSelector.innerHTML += `<div class="img-container"> 
-                                        <img src=${imageList[i]} alt="static-test-img">
+                                        <img src="${immagine.image}" alt="static-test-img">
+                                        <h2>
+                                        ${immagine.title}
+                                        </h2>
+                                        <p>
+                                        ${immagine.text}
+                                        </p>
                                     </div>
+                             
                                     `;
-                                    
+    
 
 
-}
+});
 
 // creazione div ed immagini dentro id = thumb-nail
 
