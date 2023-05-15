@@ -58,12 +58,14 @@ console.log(images);
 images.forEach((immagine) => {
     containerSelector.innerHTML += `<div class="img-container"> 
                                         <img src="${immagine.image}" alt="static-test-img">
-                                        <h2>
-                                        ${immagine.title}
-                                        </h2>
-                                        <p>
-                                        ${immagine.text}
-                                        </p>
+                                        <div class="title-text">
+                                            <h2>
+                                            ${immagine.title}
+                                            </h2>
+                                            <p>
+                                            ${immagine.text}
+                                            </p>
+                                        </div>
                                     </div>
                              
                                     `;
