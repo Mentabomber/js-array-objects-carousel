@@ -102,8 +102,9 @@ immaginiThumbNail[indexImmagineAttiva].classList.add("thumb-nail-selected")
 // bottone down per muovermi da un'immagine verso l'altra dall'alto verso il basso
 
 let  buttonInteractionUp = document.getElementById("arrow-down-carousel");
-buttonInteractionUp.addEventListener('click',
-    function(){
+buttonInteractionUp.addEventListener('click', arrowUp);
+
+function arrowUp (){
 
         immagini[indexImmagineAttiva].classList.remove("active");
 
@@ -119,17 +120,17 @@ buttonInteractionUp.addEventListener('click',
         immaginiThumbNail[indexImmagineAttiva].classList.add("thumb-nail-selected");
 
         console.log(indexImmagineAttiva);
-        
-
-    }
-);
+};
 
 // bottone down per muovermi da un'immagine verso l'altra dal basso verso l'alto
 
 let  buttonInteractionDown = document.getElementById("arrow-up-carousel");
 
-buttonInteractionDown.addEventListener('click',
-    function(){
+buttonInteractionDown.addEventListener('click', arrowDown);
+    
+
+
+function arrowDown(){
 
         immagini[indexImmagineAttiva].classList.remove("active");
 
@@ -147,85 +148,31 @@ buttonInteractionDown.addEventListener('click',
         immaginiThumbNail[indexImmagineAttiva].classList.add("thumb-nail-selected");
         
         console.log(indexImmagineAttiva);
-        
+};
 
-    
-
-    }
-);
 // Aggiungere funzionalità di autoplay: dopo un certo periodo di tempo (3 secondi) l’immagine attiva dovrà cambiare alla successiva.
 
 
 function autoPlay(){
-return setInterval(function(){
-    
-    immagini[indexImmagineAttiva].classList.remove("active");
-
-    immaginiThumbNail[indexImmagineAttiva].classList.remove("thumb-nail-selected");
-
-    if(indexImmagineAttiva == 0 ){
-        indexImmagineAttiva = imageList.length;
-
-    }
-
-    indexImmagineAttiva--;
-
-    immagini[indexImmagineAttiva].classList.add("active");
-
-    immaginiThumbNail[indexImmagineAttiva].classList.add("thumb-nail-selected");
-    
-    console.log(indexImmagineAttiva);
-    
+return setInterval(arrowDown, 3000);
 }
-, 3000);
-}
+
 let counter = 2;
+
 function autoPlayReverse(){
     return setInterval(function(){
         
         console.log(counter + "counter");
         if (counter % 2 == 0){
 
-            immagini[indexImmagineAttiva].classList.remove("active");
-
-            immaginiThumbNail[indexImmagineAttiva].classList.remove("thumb-nail-selected");
-
-            if(indexImmagineAttiva == 0 ){
-                indexImmagineAttiva = imageList.length;
-
-            }
-
-            indexImmagineAttiva--;
-
-            immagini[indexImmagineAttiva].classList.add("active");
-
-            immaginiThumbNail[indexImmagineAttiva].classList.add("thumb-nail-selected");
-            
-            console.log(indexImmagineAttiva);
+            arrowDown();
             
         }
         else if(counter % 2 == 1){
 
-            immagini[indexImmagineAttiva].classList.remove("active");
-
-            immaginiThumbNail[indexImmagineAttiva].classList.remove("thumb-nail-selected");
-            indexImmagineAttiva++;
-
-            if(indexImmagineAttiva == imageList.length ){
-                indexImmagineAttiva = 0;
-
-            }
-            immagini[indexImmagineAttiva].classList.add("active");
-
-            immaginiThumbNail[indexImmagineAttiva].classList.add("thumb-nail-selected");
-
-            console.log(indexImmagineAttiva);
-            
-
-        }
-
-        
-        
+           arrowUp();
+     
+        }  
     }
     , 3000);
     }

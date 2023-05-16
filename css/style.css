@@ -63,10 +63,12 @@
 
 .title-text{
     position: absolute;
-    bottom: 0;
+    bottom: 5px;
     right: 220px;
-    background-color: white;
+    background-color: rgba(0, 0, 0, 0.5);
     text-align: end;
+    color: white;
+    padding: 10px;
 }
 
 
