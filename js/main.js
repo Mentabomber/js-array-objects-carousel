@@ -78,7 +78,7 @@ images.forEach((immagine) => {
 
 
     containerSelector.innerHTML += `<div class="img-thumb-nail"> 
-                                        <img src=${immagine.image} alt="static-test-img">
+                                        <img src=${immagine.image} alt="static-thumb-nail-test-img">
                                     </div>
                                     ` ;
                                     
